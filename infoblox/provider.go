@@ -21,9 +21,15 @@ func Provider() terraform.ResourceProvider {
 				DefaultFunc: schema.EnvDefaultFunc("INFOBLOX_PASSWORD", nil),
 				Description: "Infoblox User Password",
 			},
+			"server": &schema.Schema{
+				Type:        schema.TypeString,
+				Required:    false,
+				DefaultFunc: schema.EnvDefaultFunc("INFOBLOX_HOST", nil),
+				Description: "Infoblox Base Url(defaults to testing)",
+			},
 			"host": &schema.Schema{
 				Type:        schema.TypeString,
-				Required:    true,
+				Required:    false,
 				DefaultFunc: schema.EnvDefaultFunc("INFOBLOX_HOST", nil),
 				Description: "Infoblox Base Url(defaults to testing)",
 			},
